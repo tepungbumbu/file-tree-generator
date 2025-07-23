@@ -1,0 +1,67 @@
+{
+  "name": "file-tree-generator",
+  "displayName": "File Tree Generator",
+  "description": "Generate a beautiful file tree from a folder. Supports icon toggle, exclude folders, and export to file-tree.md.",
+  "version": "1.0.0",
+  "publisher": "Richo-Dev",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:file-tree-generator.generateTree",
+    "onCommand:file-tree-generator.generateTreeFromFolder"
+  ],
+  "main": "./dist/extension.js",
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -w -p ./",
+    "package": "vsce package",
+    "vscode:prepublish": "npm run compile"
+  },
+  "contributes": {
+    "commands": [
+      {
+        "command": "file-tree-generator.generateTree",
+        "title": "Generate File Tree"
+      },
+      {
+        "command": "file-tree-generator.generateTreeFromFolder",
+        "title": "Generate File Tree from Here"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "file-tree-generator.generateTreeFromFolder",
+          "when": "explorerResourceIsFolder",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "title": "File Tree Generator Settings",
+      "properties": {
+        "fileTreeGenerator.showIcons": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show icons (📁, 📄) in generated tree"
+        },
+        "fileTreeGenerator.excludeFolders": {
+          "type": "array",
+          "default": ["node_modules", "venv"],
+          "description": "List of folder names to exclude from the file tree"
+        }
+      }
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "vscode": "^1.1.38",
+    "vsce": "^3.16.0"
+  }
+}

@@ -1,0 +1,24 @@
+# Ignore source files & configs
+.vscode/**
+.vscode-test/**
+src/**
+test/**
+**/*.ts
+**/*.ts.map
+**/*.map
+**/tsconfig.json
+**/eslint.config.mjs
+**/.vscode-test.*
+
+# Ignore others
+node_modules
+*.log
+*.vsix
+.vscode
+out
+.yarnrc
+.gitignore
+vsc-extension-quickstart.md
+
+# ⬇️ Explicitly include dist folder
+!dist/**
