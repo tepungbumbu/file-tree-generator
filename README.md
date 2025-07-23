@@ -1,27 +1,29 @@
 # 📁 File Tree Generator
 
-VS Code extension to generate and export a clean file tree of your workspace or any selected folder.
+A simple and useful VS Code extension to **generate a clean file tree structure** of your current workspace or any selected folder.
+
+> Supports icons, folder exclusions, and outputs as Markdown (`file-tree.md`)
+
+---
 
 ## ✨ Features
 
-- 📄 Outputs as `file-tree.md`
-- 🖼️ Uses custom icons (`file.png`, `folder.png`)
-- 🎛️ Toggle icons on/off via settings
-- 🚫 Supports folder exclusion (e.g. `node_modules`, `venv`)
-- 📋 View in Markdown Preview (`Ctrl+Shift+V`)
+- 📝 **Export as `file-tree.md`** in the root folder or selected path
+- 🖼️ **Custom icon support** (uses `folder.png` and `file.png`)
+- 📦 **Built-in emoji mode**: `📁`, `📄` (if icon images disabled)
+- ✅ **Toggle icons on/off** in settings
+- 🚫 **Exclude folders** like `node_modules`, `venv`, `.git`, etc.
+- 🔎 **Markdown preview ready** → `Ctrl+Shift+V`
+- 🖱️ **Right-click context menu** in Explorer
 
-## 🛠️ Usage
+---
 
-### 🔧 Command Palette
+## ⚙️ Extension Settings
 
-- `Ctrl+Shift+P` → `Generate File Tree`
-
-### 🖱️ Context Menu
-
-- Right click on any folder → `Generate File Tree from Here`
-
-## ⚙️ Settings
+You can configure this extension via your workspace or user settings.
 
 ```json
-"fileTreeGenerator.showIcons": true,
-"fileTreeGenerator.excludeFolders": ["node_modules", "venv"]
+{
+  "fileTreeGenerator.showIcons": true,
+  "fileTreeGenerator.excludeFolders": ["node_modules", "venv", ".git"]
+}
